@@ -8,5 +8,7 @@ namespace PaintShop.Data
 {
     public class Customer
     {
+        public string CustomerName { get; set; }
+        public int MyProperty { get; set; }
     }
 }
