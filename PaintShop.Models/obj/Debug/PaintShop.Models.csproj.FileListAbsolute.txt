@@ -1,0 +1,16 @@
+C:\DotNetProjects\Paint Shop\PaintShop\PaintShop.Models\bin\Debug\PaintShop.Models.dll.config
+C:\DotNetProjects\Paint Shop\PaintShop\PaintShop.Models\bin\Debug\PaintShop.Models.dll
+C:\DotNetProjects\Paint Shop\PaintShop\PaintShop.Models\bin\Debug\PaintShop.Models.pdb
+C:\DotNetProjects\Paint Shop\PaintShop\PaintShop.Models\bin\Debug\EntityFramework.dll
+C:\DotNetProjects\Paint Shop\PaintShop\PaintShop.Models\bin\Debug\EntityFramework.SqlServer.dll
+C:\DotNetProjects\Paint Shop\PaintShop\PaintShop.Models\bin\Debug\Microsoft.AspNet.Identity.Core.dll
+C:\DotNetProjects\Paint Shop\PaintShop\PaintShop.Models\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.dll
+C:\DotNetProjects\Paint Shop\PaintShop\PaintShop.Models\bin\Debug\EntityFramework.xml
+C:\DotNetProjects\Paint Shop\PaintShop\PaintShop.Models\bin\Debug\EntityFramework.SqlServer.xml
+C:\DotNetProjects\Paint Shop\PaintShop\PaintShop.Models\bin\Debug\Microsoft.AspNet.Identity.Core.xml
+C:\DotNetProjects\Paint Shop\PaintShop\PaintShop.Models\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.xml
+C:\DotNetProjects\Paint Shop\PaintShop\PaintShop.Models\obj\Debug\PaintShop.Models.csprojAssemblyReference.cache
+C:\DotNetProjects\Paint Shop\PaintShop\PaintShop.Models\obj\Debug\PaintShop.Models.csproj.CoreCompileInputs.cache
+C:\DotNetProjects\Paint Shop\PaintShop\PaintShop.Models\obj\Debug\PaintShop.Models.csproj.CopyComplete
+C:\DotNetProjects\Paint Shop\PaintShop\PaintShop.Models\obj\Debug\PaintShop.Models.dll
+C:\DotNetProjects\Paint Shop\PaintShop\PaintShop.Models\obj\Debug\PaintShop.Models.pdb

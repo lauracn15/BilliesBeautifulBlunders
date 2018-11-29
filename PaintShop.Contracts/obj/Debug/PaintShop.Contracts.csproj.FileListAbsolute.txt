@@ -1,0 +1,16 @@
+C:\DotNetProjects\Paint Shop\PaintShop\PaintShop.Contracts\bin\Debug\PaintShop.Contracts.dll.config
+C:\DotNetProjects\Paint Shop\PaintShop\PaintShop.Contracts\bin\Debug\PaintShop.Contracts.dll
+C:\DotNetProjects\Paint Shop\PaintShop\PaintShop.Contracts\bin\Debug\PaintShop.Contracts.pdb
+C:\DotNetProjects\Paint Shop\PaintShop\PaintShop.Contracts\bin\Debug\EntityFramework.dll
+C:\DotNetProjects\Paint Shop\PaintShop\PaintShop.Contracts\bin\Debug\EntityFramework.SqlServer.dll
+C:\DotNetProjects\Paint Shop\PaintShop\PaintShop.Contracts\bin\Debug\Microsoft.AspNet.Identity.Core.dll
+C:\DotNetProjects\Paint Shop\PaintShop\PaintShop.Contracts\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.dll
+C:\DotNetProjects\Paint Shop\PaintShop\PaintShop.Contracts\bin\Debug\EntityFramework.xml
+C:\DotNetProjects\Paint Shop\PaintShop\PaintShop.Contracts\bin\Debug\EntityFramework.SqlServer.xml
+C:\DotNetProjects\Paint Shop\PaintShop\PaintShop.Contracts\bin\Debug\Microsoft.AspNet.Identity.Core.xml
+C:\DotNetProjects\Paint Shop\PaintShop\PaintShop.Contracts\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.xml
+C:\DotNetProjects\Paint Shop\PaintShop\PaintShop.Contracts\obj\Debug\PaintShop.Contracts.csprojAssemblyReference.cache
+C:\DotNetProjects\Paint Shop\PaintShop\PaintShop.Contracts\obj\Debug\PaintShop.Contracts.csproj.CoreCompileInputs.cache
+C:\DotNetProjects\Paint Shop\PaintShop\PaintShop.Contracts\obj\Debug\PaintShop.Contracts.csproj.CopyComplete
+C:\DotNetProjects\Paint Shop\PaintShop\PaintShop.Contracts\obj\Debug\PaintShop.Contracts.dll
+C:\DotNetProjects\Paint Shop\PaintShop\PaintShop.Contracts\obj\Debug\PaintShop.Contracts.pdb
