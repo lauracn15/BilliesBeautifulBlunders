@@ -7,21 +7,18 @@ using System.Threading.Tasks;
 
 namespace PaintShop.Data
 {
-    public class Sales
+    public class Cart
     {
         [Key]
-        public int SaleId { get; set; }
+        public int AmountOfPaintings { get; set; }
 
         [Required]
-        public Guid OwnerId { get; set; }
+        public int CartId { get; set; }
 
         [Required]
         public int ProductId { get; set; }
 
         [Required]
-        public DateTime DateOfPurchase { get; set; }
-
-        [Required]
-        public DateTimeOffset CreatedUtc { get; set; }
+        public int OwnerId { get; set; }
     }
 }

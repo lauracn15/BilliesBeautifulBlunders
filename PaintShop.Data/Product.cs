@@ -21,11 +21,6 @@ namespace PaintShop.Data
         public string Colors { get; set; }
 
         [Required]
-        public string Dimensions { get; set; }
-
-        [Required]
-        public DateTimeOffset PurchaseDate { get; set; }
-
-        public DateTimeOffset? ModifiedUtc { get; set; }
+        public Enum Size { get; set; }
     }
 }
