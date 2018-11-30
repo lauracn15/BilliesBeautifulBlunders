@@ -3,7 +3,7 @@ namespace PaintShop.Data.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class InitialCreate : DbMigration
+    public partial class initial : DbMigration
     {
         public override void Up()
         {
@@ -14,10 +14,10 @@ namespace PaintShop.Data.Migrations
                         ProductId = c.Int(nullable: false, identity: true),
                         OwnerId = c.Guid(nullable: false),
                         Title = c.String(nullable: false),
+                        Medium = c.Int(nullable: false),
                         Colors = c.String(nullable: false),
-                        Dimensions = c.String(nullable: false),
-                        PurchaseDate = c.DateTimeOffset(nullable: false, precision: 7),
-                        ModifiedUtc = c.DateTimeOffset(precision: 7),
+                        Size = c.Int(nullable: false),
+                        Price = c.Decimal(nullable: false, precision: 18, scale: 2),
                     })
                 .PrimaryKey(t => t.ProductId);
             
@@ -44,6 +44,18 @@ namespace PaintShop.Data.Migrations
                 .ForeignKey("dbo.ApplicationUser", t => t.ApplicationUser_Id)
                 .Index(t => t.IdentityRole_Id)
                 .Index(t => t.ApplicationUser_Id);
+            
+            CreateTable(
+                "dbo.Sales",
+                c => new
+                    {
+                        SaleId = c.Int(nullable: false, identity: true),
+                        OwnerId = c.Guid(nullable: false),
+                        ProductId = c.Int(nullable: false),
+                        DateOfPurchase = c.DateTime(nullable: false),
+                        CreatedUtc = c.DateTimeOffset(nullable: false, precision: 7),
+                    })
+                .PrimaryKey(t => t.SaleId);
             
             CreateTable(
                 "dbo.ApplicationUser",
@@ -106,6 +118,7 @@ namespace PaintShop.Data.Migrations
             DropTable("dbo.IdentityUserLogin");
             DropTable("dbo.IdentityUserClaim");
             DropTable("dbo.ApplicationUser");
+            DropTable("dbo.Sales");
             DropTable("dbo.IdentityUserRole");
             DropTable("dbo.IdentityRole");
             DropTable("dbo.Product");

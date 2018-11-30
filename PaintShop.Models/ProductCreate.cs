@@ -5,16 +5,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PaintShop.Data
+namespace PaintShop.Models
 {
-   public class Product
+    public class ProductCreate
     {
-        [Key]
-        public int ProductId { get; set; }
-
-        [Required]
-        public Guid OwnerId { get; set; }
-
         [Required]
         public string Title { get; set; }
 
@@ -26,5 +20,11 @@ namespace PaintShop.Data
 
         [Required]
         public decimal Price { get; set; }
+
+        public override string ToString()
+        {
+            return base.ToString();
+        }
+
     }
 }

@@ -32,7 +32,8 @@ namespace PaintShop.Data
             return new ApplicationDbContext();
         }
 
-        public DbSet<Product> Notes { get; set; }
+        public DbSet<Product> Products { get; set; }
+        public DbSet<Sales> Sales { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
