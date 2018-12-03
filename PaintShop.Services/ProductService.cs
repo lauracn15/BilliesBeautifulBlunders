@@ -83,5 +83,38 @@ namespace PaintShop.Services
                 
             }
         }
+
+        public bool UpdateProduct(ProductEdit model)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                    .Products
+                    .Single(e => e.ProductId == model.ProductId && e.OwnerId == _userId);
+
+                entity.Title = model.Title;
+                entity.Colors = model.Colors;
+                entity.Size = model.Size;
+                entity.Price = model.Price;
+                entity.ModifiedUtc = DateTimeOffset.UtcNow;
+
+                return ctx.SaveChanges() == 1;
+            }
+        }
+
+        public bool DeleteProduct(int productId)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx.Products
+                    .Single(e => e.ProductId == productId && e.OwnerId == _userId);
+
+                ctx.Products.Remove(entity);
+
+                return ctx.SaveChanges() == 1;
+            }
+        }
     }
 }
