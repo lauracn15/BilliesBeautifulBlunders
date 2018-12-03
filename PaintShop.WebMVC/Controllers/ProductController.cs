@@ -31,16 +31,34 @@ namespace PaintShop.WebMVC.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create(ProductCreate model)
         {
-            if (!ModelState.IsValid)
+            if (!ModelState.IsValid) return View(model);
+            
+            var service = CreateProductService();
+
+            if (service.CreateProduct(model))
             {
+                TempData["SaveResult"] = "Your product has been added!";
+                return RedirectToAction("Index");
+            };
+
+            ModelState.AddModelError("", "Product could not be added.");
+
+            return View(model);          
+        }
+
+        public ActionResult Details(int id)
+        {
+            var svc = CreateProductService();
+            var model = svc.GetProductById(id);
+
             return View(model);
-            }
+        }
+
+        private ProductService CreateProductService()
+        {
             var userId = Guid.Parse(User.Identity.GetUserId());
             var service = new ProductService(userId);
-
-            service.CreateProduct(model);
-
-            return RedirectToAction("Create");
+            return service;
         }
     }
 }

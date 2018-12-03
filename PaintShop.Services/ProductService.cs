@@ -59,5 +59,29 @@ namespace PaintShop.Services
             }
 
         }
+
+        public ProductDetail GetProductById(int productId)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                    .Products
+                    .Single(e => e.ProductId == productId && e.OwnerId == _userId);
+                return
+                    new ProductDetail
+                    {
+                        ProductId = entity.ProductId,
+                        Title = entity.Title,
+                        Colors = entity.Colors,
+                        Size = entity.Size,
+                        Price = entity.Price,
+                        CreatedUtc = entity.CreatedUtc,
+                        ModifiedUtc = entity.ModifiedUtc,
+
+                    };
+                
+            }
+        }
     }
 }
