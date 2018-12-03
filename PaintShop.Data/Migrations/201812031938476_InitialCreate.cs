@@ -3,10 +3,23 @@ namespace PaintShop.Data.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class initial : DbMigration
+    public partial class InitialCreate : DbMigration
     {
         public override void Up()
         {
+            CreateTable(
+                "dbo.Cart",
+                c => new
+                    {
+                        CartId = c.Int(nullable: false, identity: true),
+                        OwnerId = c.Guid(nullable: false),
+                        ProductId = c.Int(nullable: false),
+                        AmountOfPaintings = c.Int(nullable: false),
+                        CreatedUtc = c.DateTimeOffset(nullable: false, precision: 7),
+                        ModifiedUtc = c.DateTimeOffset(precision: 7),
+                    })
+                .PrimaryKey(t => t.CartId);
+            
             CreateTable(
                 "dbo.Product",
                 c => new
@@ -14,10 +27,11 @@ namespace PaintShop.Data.Migrations
                         ProductId = c.Int(nullable: false, identity: true),
                         OwnerId = c.Guid(nullable: false),
                         Title = c.String(nullable: false),
-                        Medium = c.Int(nullable: false),
                         Colors = c.String(nullable: false),
-                        Size = c.Int(nullable: false),
+                        Size = c.String(nullable: false),
                         Price = c.Decimal(nullable: false, precision: 18, scale: 2),
+                        CreatedUtc = c.DateTimeOffset(nullable: false, precision: 7),
+                        ModifiedUtc = c.DateTimeOffset(precision: 7),
                     })
                 .PrimaryKey(t => t.ProductId);
             
@@ -52,8 +66,8 @@ namespace PaintShop.Data.Migrations
                         SaleId = c.Int(nullable: false, identity: true),
                         OwnerId = c.Guid(nullable: false),
                         ProductId = c.Int(nullable: false),
-                        DateOfPurchase = c.DateTime(nullable: false),
                         CreatedUtc = c.DateTimeOffset(nullable: false, precision: 7),
+                        ModifiedUtc = c.DateTimeOffset(precision: 7),
                     })
                 .PrimaryKey(t => t.SaleId);
             
@@ -122,6 +136,7 @@ namespace PaintShop.Data.Migrations
             DropTable("dbo.IdentityUserRole");
             DropTable("dbo.IdentityRole");
             DropTable("dbo.Product");
+            DropTable("dbo.Cart");
         }
     }
 }

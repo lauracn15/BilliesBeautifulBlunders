@@ -10,6 +10,7 @@ namespace PaintShop.Data.Migrations
         public Configuration()
         {
             AutomaticMigrationsEnabled = false;
+            ContextKey = "PaintShop.Data.ApplicationDbContext";
         }
 
         protected override void Seed(PaintShop.Data.ApplicationDbContext context)

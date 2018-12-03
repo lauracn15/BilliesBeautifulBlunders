@@ -10,15 +10,20 @@ namespace PaintShop.Data
     public class Cart
     {
         [Key]
-        public int AmountOfPaintings { get; set; }
+        public int CartId { get; set; }
 
         [Required]
-        public int CartId { get; set; }
+        public Guid OwnerId { get; set; }
 
         [Required]
         public int ProductId { get; set; }
 
         [Required]
-        public int OwnerId { get; set; }
+        public int AmountOfProducts { get; set; }
+
+        [Required]
+        public DateTimeOffset CreatedUtc { get; set; }
+
+        public DateTimeOffset? ModifiedUtc{ get; set; }
     }
 }
