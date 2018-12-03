@@ -54,11 +54,22 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ProductService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\PaintShop.Data\PaintShop.Data.csproj">
+      <Project>{a2c40167-7e1f-42a0-951f-ef5c1fe079fa}</Project>
+      <Name>PaintShop.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PaintShop.Models\PaintShop.Models.csproj">
+      <Project>{7287b0b5-a03d-4132-92c2-12046b3f1402}</Project>
+      <Name>PaintShop.Models</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

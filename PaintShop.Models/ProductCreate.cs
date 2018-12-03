@@ -21,10 +21,8 @@ namespace PaintShop.Models
         [Required]
         public decimal Price { get; set; }
 
-        public override string ToString()
-        {
-            return base.ToString();
-        }
+        public override string ToString() => Title;
+      
 
     }
 }

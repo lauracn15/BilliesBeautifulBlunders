@@ -17,3 +17,4 @@ C:\DotNetProjects\Paint Shop\PaintShop\PaintShop.Data\obj\Debug\PaintShop.Data.p
 C:\DotNetProjects\Paint Shop\PaintShop\PaintShop.Data\obj\Debug\PaintShop.Data.Migrations.initial.resources
 C:\DotNetProjects\Paint Shop\PaintShop\PaintShop.Data\obj\Debug\PaintShop.Data.csproj.GenerateResource.cache
 C:\DotNetProjects\Paint Shop\PaintShop\PaintShop.Data\obj\Debug\PaintShop.Data.Migrations.Second.resources
+C:\DotNetProjects\Paint Shop\PaintShop\PaintShop.Data\obj\Debug\PaintShop.Data.Migrations.Second1.resources

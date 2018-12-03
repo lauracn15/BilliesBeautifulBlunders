@@ -1,4 +1,6 @@
-﻿using PaintShop.Models;
+﻿using Microsoft.AspNet.Identity;
+using PaintShop.Models;
+using PaintShop.Services;
 using PaintShop.WebMVC.Models;
 using System;
 using System.Collections.Generic;
@@ -14,8 +16,10 @@ namespace PaintShop.WebMVC.Controllers
         // GET: Product
         public ActionResult Index()
         {
-            var model = new ProductListItem[0];
-            return View();
+            var userId = Guid.Parse(User.Identity.GetUserId());
+            var service = new ProductService(userId);
+            var model = service.GetProducts();
+            return View(model);
         }
 
         public ActionResult Create()
@@ -27,11 +31,16 @@ namespace PaintShop.WebMVC.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create(ProductCreate model)
         {
-            if (ModelState.IsValid)
+            if (!ModelState.IsValid)
             {
-
-            }
             return View(model);
+            }
+            var userId = Guid.Parse(User.Identity.GetUserId());
+            var service = new ProductService(userId);
+
+            service.CreateProduct(model);
+
+            return RedirectToAction("Create");
         }
     }
 }
