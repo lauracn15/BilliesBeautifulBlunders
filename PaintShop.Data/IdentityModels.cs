@@ -1,4 +1,5 @@
-﻿using System.Data.Entity;
+﻿using System.Collections.Generic;
+using System.Data.Entity;
 using System.Data.Entity.ModelConfiguration;
 using System.Data.Entity.ModelConfiguration.Conventions;
 using System.Security.Claims;
@@ -35,6 +36,7 @@ namespace PaintShop.Data
         public DbSet<Product> Products { get; set; }
         public DbSet<Sales> Sales { get; set; }
         public DbSet<Cart> Cart { get; set; }
+       
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

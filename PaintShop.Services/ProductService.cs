@@ -16,6 +16,13 @@ namespace PaintShop.Services
             _userId = userId;
         }
 
+        private readonly int _productId;
+        public ProductService(int productId)
+        {
+            _productId = productId;
+        }
+
+
         public bool CreateProduct(ProductCreate model)
         {
             var entity =

@@ -1,4 +1,6 @@
-﻿using PaintShop.Models;
+﻿using Microsoft.AspNet.Identity;
+using PaintShop.Models;
+using PaintShop.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,14 +15,34 @@ namespace PaintShop.WebMVC.Controllers
         // GET: Cart
         public ActionResult Index()
         {
-            var model = new CartListItem[0];
-            return View();
+            var userId = Guid.Parse(User.Identity.GetUserId());
+            var service = new CartService(userId);
+            var model = service.GetCart();
+
+            return View(model);
         }
 
 
         public ActionResult Create()
         {
             return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Create(CartCreate model)
+        {
+            if (!ModelState.IsValid)
+            {
+            return View(model);
+
+            }
+            var userId = Guid.Parse(User.Identity.GetUserId());
+            var service = new CartService(userId);
+
+            service.CreateCart(model);
+
+            return RedirectToAction("Index"); 
         }
     }
 }

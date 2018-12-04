@@ -18,6 +18,7 @@ namespace PaintShop.Models
         [Required]
         public int AmountOfProducts { get; set; }
 
-       
+      
+
     }
 }

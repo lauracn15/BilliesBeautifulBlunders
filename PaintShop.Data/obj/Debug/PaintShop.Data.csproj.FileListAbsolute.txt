@@ -18,3 +18,4 @@ C:\DotNetProjects\Paint Shop\PaintShop\PaintShop.Data\obj\Debug\PaintShop.Data.M
 C:\DotNetProjects\Paint Shop\PaintShop\PaintShop.Data\obj\Debug\PaintShop.Data.csproj.GenerateResource.cache
 C:\DotNetProjects\Paint Shop\PaintShop\PaintShop.Data\obj\Debug\PaintShop.Data.Migrations.Initial.resources
 C:\DotNetProjects\Paint Shop\PaintShop\PaintShop.Data\obj\Debug\PaintShop.Data.Migrations.Second.resources
+C:\DotNetProjects\Paint Shop\PaintShop\PaintShop.Data\obj\Debug\PaintShop.Data.Migrations.Cart.resources
