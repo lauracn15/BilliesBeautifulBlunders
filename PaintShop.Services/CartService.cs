@@ -16,13 +16,19 @@ namespace PaintShop.Services
         {
             _userId = userId;
         }
+        private readonly int _cartId;
+        public CartService(int cartId)
+        {
+            _cartId = cartId;
+        }
+
 
         public bool CreateCart(CartCreate model)
         {
             var entity =
                 new Cart()
-                {
-            
+                {       
+                    OwnerId = _userId,
                     CartId = model.CartId,
                     ProductId = model.ProductId,
                     AmountOfProducts = model.AmountOfProducts,
@@ -50,15 +56,47 @@ namespace PaintShop.Services
                         {
                             ProductId = e.ProductId,
                             CartId = e.CartId,
+                            AmountOfProducts = e.AmountOfProducts, 
                             CreatedUtc = e.CreatedUtc
                         }
-
-                        );
+                    );
                 return query.ToArray();
             }
         }
+        public CartDetail GetCartById(int cartId)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                    .Cart
+                    .Single(e => e.CartId == cartId && e.OwnerId == _userId);
+                return
+                    new CartDetail
+                    {
+                        CartId = entity.CartId,
+                        ProductId = entity.ProductId,
+                        AmountOfProducts = entity.AmountOfProducts,
+                        CreatedUtc = entity.CreatedUtc,
+                        ModifiedUtc = entity.ModifiedUtc
+                    };
+            }
+        }
+     public bool UpdateCart(CartEdit model)
+        {
+            using(var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                    .Cart.Single(e => e.CartId == model.CartId && e.OwnerId == _userId);
 
-     
+                entity.CartId = model.CartId;
+                entity.ProductId = model.ProductId;
+                entity.AmountOfProducts = model.AmountOfProducts;
+
+                return ctx.SaveChanges() == 1;
+            }
+        }
         
 
             

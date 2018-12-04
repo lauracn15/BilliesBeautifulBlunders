@@ -3,7 +3,7 @@ namespace PaintShop.Data.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class InitialCreate : DbMigration
+    public partial class FirstTry : DbMigration
     {
         public override void Up()
         {
@@ -14,7 +14,7 @@ namespace PaintShop.Data.Migrations
                         CartId = c.Int(nullable: false, identity: true),
                         OwnerId = c.Guid(nullable: false),
                         ProductId = c.Int(nullable: false),
-                        AmountOfPaintings = c.Int(nullable: false),
+                        AmountOfProducts = c.Int(nullable: false),
                         CreatedUtc = c.DateTimeOffset(nullable: false, precision: 7),
                         ModifiedUtc = c.DateTimeOffset(precision: 7),
                     })
@@ -58,18 +58,6 @@ namespace PaintShop.Data.Migrations
                 .ForeignKey("dbo.ApplicationUser", t => t.ApplicationUser_Id)
                 .Index(t => t.IdentityRole_Id)
                 .Index(t => t.ApplicationUser_Id);
-            
-            CreateTable(
-                "dbo.Sales",
-                c => new
-                    {
-                        SaleId = c.Int(nullable: false, identity: true),
-                        OwnerId = c.Guid(nullable: false),
-                        ProductId = c.Int(nullable: false),
-                        CreatedUtc = c.DateTimeOffset(nullable: false, precision: 7),
-                        ModifiedUtc = c.DateTimeOffset(precision: 7),
-                    })
-                .PrimaryKey(t => t.SaleId);
             
             CreateTable(
                 "dbo.ApplicationUser",
@@ -132,7 +120,6 @@ namespace PaintShop.Data.Migrations
             DropTable("dbo.IdentityUserLogin");
             DropTable("dbo.IdentityUserClaim");
             DropTable("dbo.ApplicationUser");
-            DropTable("dbo.Sales");
             DropTable("dbo.IdentityUserRole");
             DropTable("dbo.IdentityRole");
             DropTable("dbo.Product");

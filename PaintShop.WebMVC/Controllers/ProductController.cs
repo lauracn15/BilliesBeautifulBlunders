@@ -19,6 +19,7 @@ namespace PaintShop.WebMVC.Controllers
             var userId = Guid.Parse(User.Identity.GetUserId());
             var service = new ProductService(userId);
             var model = service.GetProducts();
+
             return View(model);
         }
 

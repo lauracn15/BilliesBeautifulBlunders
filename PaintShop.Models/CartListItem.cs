@@ -11,7 +11,6 @@ namespace PaintShop.Models
     {
         
         public int CartId { get; set; }
-        public Guid OwnerId { get; set; }
         public int ProductId { get; set; }
         public int AmountOfProducts { get; set; }
 

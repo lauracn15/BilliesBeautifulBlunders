@@ -22,7 +22,6 @@ namespace PaintShop.WebMVC.Controllers
             return View(model);
         }
 
-
         public ActionResult Create()
         {
             return View();
@@ -32,17 +31,51 @@ namespace PaintShop.WebMVC.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create(CartCreate model)
         {
-            if (!ModelState.IsValid)
-            {
-            return View(model);
+            if (!ModelState.IsValid) return View(model);
 
-            }
+            var service = CreateCartService();
+
+            if (service.CreateCart(model))
+            {
+                TempData["SaveResult"] = "Your cart is up to date!";
+                return RedirectToAction("Index");
+            };
+
+            ModelState.AddModelError("", "Cart could not be updated.");
+
+            return View(model);
+        }
+
+        private CartService CreateCartService()
+        {
             var userId = Guid.Parse(User.Identity.GetUserId());
             var service = new CartService(userId);
-
-            service.CreateCart(model);
-
-            return RedirectToAction("Index"); 
+            return service;
         }
+
+        public ActionResult Details(int id)
+        {
+            var svc = CreateCartService();
+            var model = svc.GetCartById(id);
+
+            return View(model);
+        }
+        
+ 
+        public ActionResult Edit(int id)
+        {
+            var service = CreateCartService();
+            var detail = service.GetCartById(id);
+            var model =
+                new CartEdit
+                {
+                    CartId = detail.CartId,
+                    ProductId = detail.ProductId,
+                    AmountOfProducts = detail.AmountOfProducts
+                };
+            return View(model);
+        }
+
+
     }
 }

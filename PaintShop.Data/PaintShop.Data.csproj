@@ -55,25 +55,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Cart.cs" />
-    <Compile Include="Migrations\201812031938476_InitialCreate.cs" />
-    <Compile Include="Migrations\201812031938476_InitialCreate.Designer.cs">
-      <DependentUpon>201812031938476_InitialCreate.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201812032027513_Initial.cs" />
-    <Compile Include="Migrations\201812032027513_Initial.Designer.cs">
-      <DependentUpon>201812032027513_Initial.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201812032124114_Second.cs" />
-    <Compile Include="Migrations\201812032124114_Second.Designer.cs">
-      <DependentUpon>201812032124114_Second.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201812041654058_Cart.cs" />
-    <Compile Include="Migrations\201812041654058_Cart.Designer.cs">
-      <DependentUpon>201812041654058_Cart.cs</DependentUpon>
+    <Compile Include="IdentityModels.cs" />
+    <Compile Include="Migrations\201812041943209_FirstTry.cs" />
+    <Compile Include="Migrations\201812041943209_FirstTry.Designer.cs">
+      <DependentUpon>201812041943209_FirstTry.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
-    <Compile Include="Sales.cs" />
-    <Compile Include="IdentityModels.cs" />
     <Compile Include="Product.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -82,17 +69,8 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201812031938476_InitialCreate.resx">
-      <DependentUpon>201812031938476_InitialCreate.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201812032027513_Initial.resx">
-      <DependentUpon>201812032027513_Initial.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201812032124114_Second.resx">
-      <DependentUpon>201812032124114_Second.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201812041654058_Cart.resx">
-      <DependentUpon>201812041654058_Cart.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201812041943209_FirstTry.resx">
+      <DependentUpon>201812041943209_FirstTry.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

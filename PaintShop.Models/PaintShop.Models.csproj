@@ -55,6 +55,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CartCreate.cs" />
+    <Compile Include="CartDetail.cs" />
+    <Compile Include="CartEdit.cs" />
     <Compile Include="CartListItem.cs" />
     <Compile Include="ProductCreate.cs" />
     <Compile Include="ProductDetail.cs" />

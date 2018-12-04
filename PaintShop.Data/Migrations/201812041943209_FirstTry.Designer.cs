@@ -7,13 +7,13 @@ namespace PaintShop.Data.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.0-30225")]
-    public sealed partial class Cart : IMigrationMetadata
+    public sealed partial class FirstTry : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(Cart));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(FirstTry));
         
         string IMigrationMetadata.Id
         {
-            get { return "201812041654058_Cart"; }
+            get { return "201812041943209_FirstTry"; }
         }
         
         string IMigrationMetadata.Source

@@ -34,7 +34,6 @@ namespace PaintShop.Data
         }
 
         public DbSet<Product> Products { get; set; }
-        public DbSet<Sales> Sales { get; set; }
         public DbSet<Cart> Cart { get; set; }
        
 
