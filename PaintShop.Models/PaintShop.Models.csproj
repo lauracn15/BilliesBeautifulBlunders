@@ -63,6 +63,8 @@
     <Compile Include="ProductEdit.cs" />
     <Compile Include="ProductListItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SalesCreate.cs" />
+    <Compile Include="SalesListItem.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

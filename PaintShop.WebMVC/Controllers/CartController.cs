@@ -52,7 +52,12 @@ namespace PaintShop.WebMVC.Controllers
             var service = new CartService(userId);
             return service;
         }
-
+        private ProductService CreateProductService()
+        {
+            var userId = Guid.Parse(User.Identity.GetUserId());
+            var service = new ProductService(userId);
+            return service;
+        }
         public ActionResult Details(int id)
         {
             var svc = CreateCartService();
@@ -76,6 +81,28 @@ namespace PaintShop.WebMVC.Controllers
             return View(model);
         }
 
+        [ActionName("Delete")]
+        public ActionResult Delete(int id)
+        {
+            var svc = CreateCartService();
+            var model = svc.GetCartById(id);
 
+            return View(model);
+        }
+
+
+        [HttpPost]
+        [ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public ActionResult DeletePost(int id)
+        {
+            var service = CreateCartService();
+            service.DeleteCart(id);
+
+            TempData["SaveResult"] = "This product has been removed from your cart.";
+
+            return RedirectToAction("Index");
+
+        }
     }
 }

@@ -13,6 +13,10 @@ namespace PaintShop.Models
         public int ProductId { get; set; }
         public int AmountOfProducts { get; set; }
 
+        public string Title { get; set; }
+        public string Colors { get; set; }
+        public decimal Price { get; set; }
+
         [Display(Name="Created")]
         public DateTimeOffset CreatedUtc { get; set; }
 

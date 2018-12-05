@@ -10,6 +10,9 @@ namespace PaintShop.Services
 {
     public class CartService
     {
+        private List<ProductListItem> _productListItems = new List<ProductListItem>();
+        private List<ProductListItem> _queryableList = new List<ProductListItem>();
+
         private readonly Guid _userId;
 
         public CartService(Guid userId)
@@ -27,7 +30,7 @@ namespace PaintShop.Services
         {
             var entity =
                 new Cart()
-                {       
+                {
                     OwnerId = _userId,
                     CartId = model.CartId,
                     ProductId = model.ProductId,
@@ -56,7 +59,7 @@ namespace PaintShop.Services
                         {
                             ProductId = e.ProductId,
                             CartId = e.CartId,
-                            AmountOfProducts = e.AmountOfProducts, 
+                            AmountOfProducts = e.AmountOfProducts,
                             CreatedUtc = e.CreatedUtc
                         }
                     );
@@ -76,30 +79,46 @@ namespace PaintShop.Services
                     {
                         CartId = entity.CartId,
                         ProductId = entity.ProductId,
+                        Title = entity.Product.Title,
                         AmountOfProducts = entity.AmountOfProducts,
                         CreatedUtc = entity.CreatedUtc,
                         ModifiedUtc = entity.ModifiedUtc
                     };
             }
         }
-     public bool UpdateCart(CartEdit model)
+        public bool UpdateCart(CartEdit model)
         {
-            using(var ctx = new ApplicationDbContext())
+            using (var ctx = new ApplicationDbContext())
             {
                 var entity =
                     ctx
-                    .Cart.Single(e => e.CartId == model.CartId && e.OwnerId == _userId);
+                    .Cart
+                    .Single(e => e.CartId == model.CartId && e.OwnerId == _userId);
 
                 entity.CartId = model.CartId;
                 entity.ProductId = model.ProductId;
                 entity.AmountOfProducts = model.AmountOfProducts;
+                entity.ModifiedUtc = DateTimeOffset.UtcNow;
 
                 return ctx.SaveChanges() == 1;
             }
         }
-        
+        public bool DeleteCart(int cartId)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                    .Cart
+                    .Single(e => e.CartId == cartId && e.OwnerId == _userId);
 
-            
+                ctx.Cart.Remove(entity);
+
+                return ctx.SaveChanges() == 1;
+            }
+        }
+
+
 
 
 

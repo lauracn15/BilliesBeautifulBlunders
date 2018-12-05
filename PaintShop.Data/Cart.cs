@@ -25,5 +25,7 @@ namespace PaintShop.Data
         public DateTimeOffset CreatedUtc { get; set; }
 
         public DateTimeOffset? ModifiedUtc{ get; set; }
+
+        public virtual Product Product { get; set; }
     }
 }
