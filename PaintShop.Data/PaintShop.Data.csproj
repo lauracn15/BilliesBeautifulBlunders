@@ -56,9 +56,9 @@
   <ItemGroup>
     <Compile Include="Cart.cs" />
     <Compile Include="IdentityModels.cs" />
-    <Compile Include="Migrations\201812041943209_FirstTry.cs" />
-    <Compile Include="Migrations\201812041943209_FirstTry.Designer.cs">
-      <DependentUpon>201812041943209_FirstTry.cs</DependentUpon>
+    <Compile Include="Migrations\201812061851277_Initial.cs" />
+    <Compile Include="Migrations\201812061851277_Initial.Designer.cs">
+      <DependentUpon>201812061851277_Initial.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Product.cs" />
@@ -70,8 +70,8 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201812041943209_FirstTry.resx">
-      <DependentUpon>201812041943209_FirstTry.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201812061851277_Initial.resx">
+      <DependentUpon>201812061851277_Initial.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

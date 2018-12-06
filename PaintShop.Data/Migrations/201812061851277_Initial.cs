@@ -3,7 +3,7 @@ namespace PaintShop.Data.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class FirstTry : DbMigration
+    public partial class Initial : DbMigration
     {
         public override void Up()
         {
@@ -12,13 +12,19 @@ namespace PaintShop.Data.Migrations
                 c => new
                     {
                         CartId = c.Int(nullable: false, identity: true),
-                        OwnerId = c.Guid(nullable: false),
                         ProductId = c.Int(nullable: false),
+                        OwnerId = c.Guid(nullable: false),
+                        Title = c.String(),
+                        Size = c.String(),
+                        Colors = c.String(),
+                        Price = c.Decimal(nullable: false, precision: 18, scale: 2),
                         AmountOfProducts = c.Int(nullable: false),
                         CreatedUtc = c.DateTimeOffset(nullable: false, precision: 7),
                         ModifiedUtc = c.DateTimeOffset(precision: 7),
                     })
-                .PrimaryKey(t => t.CartId);
+                .PrimaryKey(t => t.CartId)
+                .ForeignKey("dbo.Product", t => t.ProductId, cascadeDelete: true)
+                .Index(t => t.ProductId);
             
             CreateTable(
                 "dbo.Product",
@@ -58,6 +64,23 @@ namespace PaintShop.Data.Migrations
                 .ForeignKey("dbo.ApplicationUser", t => t.ApplicationUser_Id)
                 .Index(t => t.IdentityRole_Id)
                 .Index(t => t.ApplicationUser_Id);
+            
+            CreateTable(
+                "dbo.Sales",
+                c => new
+                    {
+                        SalesId = c.Int(nullable: false, identity: true),
+                        CartId = c.Int(nullable: false),
+                        OwnerId = c.Guid(nullable: false),
+                        CreatedUtc = c.DateTimeOffset(nullable: false, precision: 7),
+                        ModifiedUtc = c.DateTimeOffset(precision: 7),
+                        Product_ProductId = c.Int(),
+                    })
+                .PrimaryKey(t => t.SalesId)
+                .ForeignKey("dbo.Cart", t => t.CartId, cascadeDelete: true)
+                .ForeignKey("dbo.Product", t => t.Product_ProductId)
+                .Index(t => t.CartId)
+                .Index(t => t.Product_ProductId);
             
             CreateTable(
                 "dbo.ApplicationUser",
@@ -112,14 +135,21 @@ namespace PaintShop.Data.Migrations
             DropForeignKey("dbo.IdentityUserRole", "ApplicationUser_Id", "dbo.ApplicationUser");
             DropForeignKey("dbo.IdentityUserLogin", "ApplicationUser_Id", "dbo.ApplicationUser");
             DropForeignKey("dbo.IdentityUserClaim", "ApplicationUser_Id", "dbo.ApplicationUser");
+            DropForeignKey("dbo.Sales", "Product_ProductId", "dbo.Product");
+            DropForeignKey("dbo.Sales", "CartId", "dbo.Cart");
             DropForeignKey("dbo.IdentityUserRole", "IdentityRole_Id", "dbo.IdentityRole");
+            DropForeignKey("dbo.Cart", "ProductId", "dbo.Product");
             DropIndex("dbo.IdentityUserLogin", new[] { "ApplicationUser_Id" });
             DropIndex("dbo.IdentityUserClaim", new[] { "ApplicationUser_Id" });
+            DropIndex("dbo.Sales", new[] { "Product_ProductId" });
+            DropIndex("dbo.Sales", new[] { "CartId" });
             DropIndex("dbo.IdentityUserRole", new[] { "ApplicationUser_Id" });
             DropIndex("dbo.IdentityUserRole", new[] { "IdentityRole_Id" });
+            DropIndex("dbo.Cart", new[] { "ProductId" });
             DropTable("dbo.IdentityUserLogin");
             DropTable("dbo.IdentityUserClaim");
             DropTable("dbo.ApplicationUser");
+            DropTable("dbo.Sales");
             DropTable("dbo.IdentityUserRole");
             DropTable("dbo.IdentityRole");
             DropTable("dbo.Product");

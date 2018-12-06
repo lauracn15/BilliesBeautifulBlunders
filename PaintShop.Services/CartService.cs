@@ -10,21 +10,12 @@ namespace PaintShop.Services
 {
     public class CartService
     {
-        private List<ProductListItem> _productListItems = new List<ProductListItem>();
-        private List<ProductListItem> _queryableList = new List<ProductListItem>();
-
         private readonly Guid _userId;
 
         public CartService(Guid userId)
         {
             _userId = userId;
         }
-        private readonly int _cartId;
-        public CartService(int cartId)
-        {
-            _cartId = cartId;
-        }
-
 
         public bool CreateCart(CartCreate model)
         {
@@ -32,10 +23,8 @@ namespace PaintShop.Services
                 new Cart()
                 {
                     OwnerId = _userId,
-                    CartId = model.CartId,
                     ProductId = model.ProductId,
-                    AmountOfProducts = model.AmountOfProducts,
-                    CreatedUtc = DateTimeOffset.Now
+                    Title = model.Title,
                 };
 
             using (var ctx = new ApplicationDbContext())
@@ -57,8 +46,12 @@ namespace PaintShop.Services
                         e =>
                         new CartListItem
                         {
-                            ProductId = e.ProductId,
                             CartId = e.CartId,
+                            ProductId = e.ProductId,
+                            Price = e.Product.Price,
+                            Title = e.Product.Title,
+                            Colors = e.Product.Colors,
+                            Size = e.Product.Size,
                             AmountOfProducts = e.AmountOfProducts,
                             CreatedUtc = e.CreatedUtc
                         }
@@ -66,6 +59,25 @@ namespace PaintShop.Services
                 return query.ToArray();
             }
         }
+        //public ProductListItem GetProductById(int id)
+        //{
+        //    using(var ctx = new ApplicationDbContext())
+        //    {
+        //        var entity =
+        //            ctx
+        //                .Products
+        //                .Single(e => e.ProductId == id && e.OwnerId == _userId);
+        //        return
+        //            new ProductListItem
+        //            {
+        //                ProductId = entity.ProductId,
+        //                Title = entity.Title,
+        //                Colors = entity.Colors,
+        //                Size = entity.Size,
+        //                Price = entity.Price,
+        //            };
+        //    }
+        //}
         public CartDetail GetCartById(int cartId)
         {
             using (var ctx = new ApplicationDbContext())
@@ -80,7 +92,9 @@ namespace PaintShop.Services
                         CartId = entity.CartId,
                         ProductId = entity.ProductId,
                         Title = entity.Product.Title,
-                        AmountOfProducts = entity.AmountOfProducts,
+                        Size = entity.Product.Size,
+                        Colors = entity.Product.Colors,
+                        Price = entity.Product.Price,
                         CreatedUtc = entity.CreatedUtc,
                         ModifiedUtc = entity.ModifiedUtc
                     };

@@ -14,3 +14,6 @@ C:\DotNetProjects\Paint Shop\PaintShop\PaintShop.Models\obj\Debug\PaintShop.Mode
 C:\DotNetProjects\Paint Shop\PaintShop\PaintShop.Models\obj\Debug\PaintShop.Models.csproj.CopyComplete
 C:\DotNetProjects\Paint Shop\PaintShop\PaintShop.Models\obj\Debug\PaintShop.Models.dll
 C:\DotNetProjects\Paint Shop\PaintShop\PaintShop.Models\obj\Debug\PaintShop.Models.pdb
+C:\DotNetProjects\Paint Shop\PaintShop\PaintShop.Models\bin\Debug\PaintShop.Data.dll
+C:\DotNetProjects\Paint Shop\PaintShop\PaintShop.Models\bin\Debug\PaintShop.Data.pdb
+C:\DotNetProjects\Paint Shop\PaintShop\PaintShop.Models\bin\Debug\PaintShop.Data.dll.config

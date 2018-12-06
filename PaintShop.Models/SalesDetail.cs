@@ -5,22 +5,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PaintShop.Data
+namespace PaintShop.Models
 {
-    public class Sales
+    public class SalesDetail
     {
-        [Key]
-        public int SalesId { get; set; }
         public int CartId { get; set; }
-       
+        public int AmountOfProducts { get; set; }
 
-        [Required]
-        public Guid OwnerId { get; set; }
-       
-
-        public virtual Cart Cart { get; set; }
-        public virtual Product Product { get; set; }
+        
+        [Display(Name = "Created")]
         public DateTimeOffset CreatedUtc { get; set; }
+
+        [Display(Name = "Modified")]
         public DateTimeOffset? ModifiedUtc { get; set; }
     }
 }

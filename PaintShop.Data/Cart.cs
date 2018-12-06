@@ -11,14 +11,14 @@ namespace PaintShop.Data
     {
         [Key]
         public int CartId { get; set; }
-
-        [Required]
-        public Guid OwnerId { get; set; }
-
-        [Required]
         public int ProductId { get; set; }
 
         [Required]
+        public Guid OwnerId { get; set; }
+        public string Title { get; set; }
+        public string Size { get; set; }
+        public string Colors { get; set; }
+        public decimal Price { get; set; }
         public int AmountOfProducts { get; set; }
 
         [Required]

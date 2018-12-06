@@ -12,6 +12,11 @@ namespace PaintShop.Models
         [Display(Name="Sales")]
         public int SalesId { get; set; }
 
+        public int ProductId { get; set; }
+        public int AmountOfProducts { get; set; }
+
+ 
+
         public DateTimeOffset CreatedUtc { get; set; }
     }
 }

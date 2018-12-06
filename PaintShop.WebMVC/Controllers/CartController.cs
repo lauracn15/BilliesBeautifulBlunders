@@ -24,6 +24,8 @@ namespace PaintShop.WebMVC.Controllers
 
         public ActionResult Create()
         {
+            var productService = CreateProductService();
+            ViewBag.ProductId = new SelectList(productService.GetProducts(), "ProductId", "Title");
             return View();
         }
 
@@ -34,7 +36,12 @@ namespace PaintShop.WebMVC.Controllers
             if (!ModelState.IsValid) return View(model);
 
             var service = CreateCartService();
+            var productService = CreateProductService();
 
+            productService.GetProductById(model.ProductId);
+
+           
+            
             if (service.CreateCart(model))
             {
                 TempData["SaveResult"] = "Your cart is up to date!";
@@ -51,6 +58,7 @@ namespace PaintShop.WebMVC.Controllers
             var userId = Guid.Parse(User.Identity.GetUserId());
             var service = new CartService(userId);
             return service;
+            
         }
         private ProductService CreateProductService()
         {

@@ -16,8 +16,9 @@ namespace PaintShop.Models
         public int ProductId { get; set; }
 
         [Required]
-        public int AmountOfProducts { get; set; }
+        public string Title { get; set; }
 
+        public override string ToString() => base.ToString();
        
-    }
+    }   
 }

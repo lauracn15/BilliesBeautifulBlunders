@@ -9,6 +9,7 @@ namespace PaintShop.Models
     public class SalesCreate
     {
         public int SalesId { get; set; }
-
+        public int CartId { get; set; }
+       
     }
 }
