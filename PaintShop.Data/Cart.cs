@@ -15,17 +15,18 @@ namespace PaintShop.Data
 
         [Required]
         public Guid OwnerId { get; set; }
+
         public string Title { get; set; }
         public string Size { get; set; }
         public string Colors { get; set; }
         public decimal Price { get; set; }
-        public int AmountOfProducts { get; set; }
-
+        
         [Required]
         public DateTimeOffset CreatedUtc { get; set; }
 
         public DateTimeOffset? ModifiedUtc{ get; set; }
 
         public virtual Product Product { get; set; }
+
     }
 }

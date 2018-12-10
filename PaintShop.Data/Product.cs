@@ -27,6 +27,8 @@ namespace PaintShop.Data
         [Required]
         public decimal Price { get; set; }
 
+
+
         public DateTimeOffset CreatedUtc { get; set; }
 
         public DateTimeOffset? ModifiedUtc { get; set; }

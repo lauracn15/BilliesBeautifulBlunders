@@ -6,10 +6,9 @@ using System.Threading.Tasks;
 
 namespace PaintShop.Models
 {
-    public class CartEdit
+    public class SalesEdit
     {
         public int CartId { get; set; }
-        public int ProductId { get; set; }
-       
+        public int SalesId { get; set; }
     }
 }

@@ -3,7 +3,7 @@ namespace PaintShop.Data.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class Initial : DbMigration
+    public partial class first : DbMigration
     {
         public override void Up()
         {
@@ -18,9 +18,8 @@ namespace PaintShop.Data.Migrations
                         Size = c.String(),
                         Colors = c.String(),
                         Price = c.Decimal(nullable: false, precision: 18, scale: 2),
-                        AmountOfProducts = c.Int(nullable: false),
-                        CreatedUtc = c.DateTimeOffset(nullable: false, precision: 7),
                         ModifiedUtc = c.DateTimeOffset(precision: 7),
+                        CreatedUtc = c.DateTimeOffset(nullable: false, precision: 7),
                     })
                 .PrimaryKey(t => t.CartId)
                 .ForeignKey("dbo.Product", t => t.ProductId, cascadeDelete: true)
@@ -74,6 +73,10 @@ namespace PaintShop.Data.Migrations
                         OwnerId = c.Guid(nullable: false),
                         CreatedUtc = c.DateTimeOffset(nullable: false, precision: 7),
                         ModifiedUtc = c.DateTimeOffset(precision: 7),
+                        Title = c.String(),
+                        Colors = c.String(),
+                        Size = c.String(),
+                        Price = c.Decimal(nullable: false, precision: 18, scale: 2),
                         Product_ProductId = c.Int(),
                     })
                 .PrimaryKey(t => t.SalesId)

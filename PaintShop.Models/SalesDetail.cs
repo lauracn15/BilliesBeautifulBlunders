@@ -9,14 +9,11 @@ namespace PaintShop.Models
 {
     public class SalesDetail
     {
-        public int CartId { get; set; }
-        public int AmountOfProducts { get; set; }
-
         
-        [Display(Name = "Created")]
-        public DateTimeOffset CreatedUtc { get; set; }
+        public int SalesId { get; set; }
+        public int CartId { get; set; }
+     
 
-        [Display(Name = "Modified")]
-        public DateTimeOffset? ModifiedUtc { get; set; }
+       
     }
 }

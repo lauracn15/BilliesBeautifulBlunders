@@ -16,7 +16,6 @@ namespace PaintShop.Data
 
         [Required]
         public Guid OwnerId { get; set; }
-       
 
         public virtual Cart Cart { get; set; }
         public virtual Product Product { get; set; }

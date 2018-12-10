@@ -7,13 +7,13 @@ namespace PaintShop.Data.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.0-30225")]
-    public sealed partial class Initial : IMigrationMetadata
+    public sealed partial class ruinedpossibly : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(Initial));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(ruinedpossibly));
         
         string IMigrationMetadata.Id
         {
-            get { return "201812061851277_Initial"; }
+            get { return "201812102111343_ruined possibly"; }
         }
         
         string IMigrationMetadata.Source

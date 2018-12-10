@@ -28,6 +28,19 @@ namespace PaintShop.WebMVC.Controllers
             ViewBag.ProductId = new SelectList(productService.GetProducts(), "ProductId", "Title");
             return View();
         }
+        private CartService CreateCartService()
+        {
+            var userId = Guid.Parse(User.Identity.GetUserId());
+            var service = new CartService(userId);
+            return service;
+            
+        }
+        private ProductService CreateProductService()
+        {
+            var userId = Guid.Parse(User.Identity.GetUserId());
+            var service = new ProductService(userId);
+            return service;
+        }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -53,19 +66,6 @@ namespace PaintShop.WebMVC.Controllers
             return View(model);
         }
 
-        private CartService CreateCartService()
-        {
-            var userId = Guid.Parse(User.Identity.GetUserId());
-            var service = new CartService(userId);
-            return service;
-            
-        }
-        private ProductService CreateProductService()
-        {
-            var userId = Guid.Parse(User.Identity.GetUserId());
-            var service = new ProductService(userId);
-            return service;
-        }
         public ActionResult Details(int id)
         {
             var svc = CreateCartService();
@@ -84,7 +84,7 @@ namespace PaintShop.WebMVC.Controllers
                 {
                     CartId = detail.CartId,
                     ProductId = detail.ProductId,
-                    AmountOfProducts = detail.AmountOfProducts
+                    
                 };
             return View(model);
         }

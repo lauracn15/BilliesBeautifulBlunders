@@ -13,22 +13,15 @@ namespace PaintShop.Models
         
         public int CartId { get; set; }
         public int ProductId { get; set; }
-        public int AmountOfProducts { get; set; }
+        public string Title { get; set; }
+ 
 
         public string Colors { get; set; }
         public string Size { get; set; }
         public decimal Price { get; set; }
 
         public virtual Product Product { get; set; }
-        public string Title { get; set; }
-        
-
-        [Display(Name="Created")]
         public DateTimeOffset CreatedUtc { get; set; }
-
-        public override string ToString()
-        {
-            return base.ToString();
-        }
+        public DateTimeOffset? ModifiedUtc { get; set; }
     }
 }
