@@ -12,13 +12,12 @@ namespace PaintShop.Data
         [Key]
         public int SalesId { get; set; }
         public int CartId { get; set; }
-       
+        public int ProductId { get; set; }
 
         [Required]
         public Guid OwnerId { get; set; }
 
         public virtual Cart Cart { get; set; }
-        public virtual Product Product { get; set; }
         public DateTimeOffset CreatedUtc { get; set; }
         public DateTimeOffset? ModifiedUtc { get; set; }
     }

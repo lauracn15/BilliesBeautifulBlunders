@@ -22,12 +22,13 @@ namespace PaintShop.Services
                 new Sales()
                 {
                     OwnerId = _userId,
-                    CartId = model.CartId,
-            
+                    CartId = model.CartId
                 };
 
             using (var ctx = new ApplicationDbContext())
             {
+                entity.ProductId = ctx.Cart.FirstOrDefault(c => c.CartId == entity.CartId).ProductId;
+
                 ctx.Sales.Add(entity);
                 return ctx.SaveChanges() == 1;
             }
@@ -46,10 +47,11 @@ namespace PaintShop.Services
                         new SalesListItem
                         {
                             SalesId = e.SalesId,
-                            CartId = e.Cart.CartId, 
-                            Price = e.Cart.Price,
-                            Title = e.Cart.Title,
-                          
+                            CartId = e.CartId,
+                            Price = e.Cart.Product.Price,
+                            Title = e.Cart.Product.Title,
+                            Colors = e.Cart.Product.Colors,
+                            Size = e.Cart.Product.Size,
                         }
                     );
                 return query.ToArray();
@@ -70,10 +72,26 @@ namespace PaintShop.Services
                     new SalesDetail
                     {
                         CartId = entity.Cart.CartId,
-                      
+
                     };
             }
-        }        
+        }
+        public bool UpdateSales(SalesEdit model)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                    .Sales
+                    .Single(e => e.SalesId == model.SalesId && e.OwnerId == _userId);
+
+                entity.CartId = model.CartId;
+                entity.SalesId = model.SalesId;
+                entity.ModifiedUtc = DateTimeOffset.UtcNow;
+
+                return ctx.SaveChanges() == 1;
+            }
+        }
 
         public bool DeleteSales(int salesId)
         {
@@ -84,7 +102,7 @@ namespace PaintShop.Services
                     .Sales
                     .Single(e => e.SalesId == salesId && e.OwnerId == _userId);
 
-                    ctx.Sales.Remove(entity);
+                ctx.Sales.Remove(entity);
 
                 return ctx.SaveChanges() == 1;
             }

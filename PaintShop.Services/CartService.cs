@@ -60,25 +60,6 @@ namespace PaintShop.Services
                 return query.ToArray();
             }
         }
-        //public ProductListItem GetProductById(int id)
-        //{
-        //    using(var ctx = new ApplicationDbContext())
-        //    {
-        //        var entity =
-        //            ctx
-        //                .Products
-        //                .Single(e => e.ProductId == id && e.OwnerId == _userId);
-        //        return
-        //            new ProductListItem
-        //            {
-        //                ProductId = entity.ProductId,
-        //                Title = entity.Title,
-        //                Colors = entity.Colors,
-        //                Size = entity.Size,
-        //                Price = entity.Price,
-        //            };
-        //    }
-        //}
         public CartDetail GetCartById(int cartId)
         {
             using (var ctx = new ApplicationDbContext())

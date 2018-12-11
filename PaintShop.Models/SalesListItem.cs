@@ -17,6 +17,7 @@ namespace PaintShop.Models
 
         public DateTimeOffset CreatedUtc { get; set; }
 
+        public virtual Product Product { get; set; }
         public virtual Cart Cart { get; set; }
 
         public string Title { get; set; }

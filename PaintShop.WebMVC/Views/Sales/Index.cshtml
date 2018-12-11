@@ -18,9 +18,6 @@
             @Html.DisplayNameFor(model => model.CartId)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.ProductId)
-        </th>
-        <th>
             @Html.DisplayNameFor(model => model.CreatedUtc)
         </th>
         <th>
@@ -50,9 +47,6 @@
             @Html.DisplayFor(modelItem => item.CartId)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.ProductId)
-        </td>
-        <td>
             @Html.DisplayFor(modelItem => item.CreatedUtc)
         </td>
         <td>
@@ -71,9 +65,9 @@
             @Html.DisplayFor(modelItem => item.ModifiedUtc)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+            @Html.ActionLink("Edit", "Edit", new {  id=item.SalesId }) |
+            @Html.ActionLink("Details", "Details", new {  id=item.SalesId  }) |
+            @Html.ActionLink("Delete", "Delete", new {  id=item.SalesId })
         </td>
     </tr>
 }

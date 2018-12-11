@@ -14,7 +14,3 @@ C:\DotNetProjects\Paint Shop\PaintShop\PaintShop.Data\obj\Debug\PaintShop.Data.c
 C:\DotNetProjects\Paint Shop\PaintShop\PaintShop.Data\obj\Debug\PaintShop.Data.csproj.CopyComplete
 C:\DotNetProjects\Paint Shop\PaintShop\PaintShop.Data\obj\Debug\PaintShop.Data.dll
 C:\DotNetProjects\Paint Shop\PaintShop\PaintShop.Data\obj\Debug\PaintShop.Data.pdb
-C:\DotNetProjects\Paint Shop\PaintShop\PaintShop.Data\obj\Debug\PaintShop.Data.Migrations.first.resources
-C:\DotNetProjects\Paint Shop\PaintShop\PaintShop.Data\obj\Debug\PaintShop.Data.csproj.GenerateResource.cache
-C:\DotNetProjects\Paint Shop\PaintShop\PaintShop.Data\obj\Debug\PaintShop.Data.Migrations.ruinedpossibly.resources
-C:\DotNetProjects\Paint Shop\PaintShop\PaintShop.Data\obj\Debug\PaintShop.Data.Migrations.hep.resources

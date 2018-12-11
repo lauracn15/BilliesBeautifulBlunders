@@ -94,6 +94,28 @@ namespace PaintShop.WebMVC.Controllers
             return View(model);
         }
 
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit(int id, SalesEdit model)
+        {
+            if (!ModelState.IsValid) return View(model);
+
+            if (model.SalesId != id)
+            {
+                ModelState.AddModelError("", "Id Mismatch");
+                return View(model);
+            }
+            var service = CreateSalesService();
+
+            if (service.UpdateSales(model))
+            {
+                TempData["SaveResult"] = "Your transactions were updated.";
+                return RedirectToAction("Index");
+            }
+            ModelState.AddModelError("", "Your transaction could not be updated.");
+            return View(model);
+        }
+
         [ActionName("Delete")]
         public ActionResult Delete(int id)
         {

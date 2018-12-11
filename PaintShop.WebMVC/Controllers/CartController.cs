@@ -86,6 +86,30 @@ namespace PaintShop.WebMVC.Controllers
                     ProductId = detail.ProductId,
                     
                 };
+            var productService = CreateProductService();
+            ViewBag.ProductId = new SelectList(productService.GetProducts(), "ProductId", "Title");
+            return View(model);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit(int id, CartEdit model)
+        {
+            if (!ModelState.IsValid) return View(model);
+
+            if (model.CartId != id)
+            {
+                ModelState.AddModelError("", "Id Mismatch");
+                return View(model);
+            }
+            var service = CreateCartService();
+
+            if (service.UpdateCart(model))
+            {
+                TempData["SaveResult"] = "Your cart has been updated.";
+                return RedirectToAction("Index");
+            }
+            ModelState.AddModelError("", "Your cart could not be updated.");
             return View(model);
         }
 
