@@ -29,7 +29,7 @@
                                     </button>
                                 </div>
                                 <ul class="nav masthead-nav">
-                                    <li> @Html.ActionLink("Add Product", "Index", "Product", new { area = "" }, new { @class = "navbar-link" })</li>
+                                    <li> <a href="@Url.Action("Index", "Product")">Add Product</a> </li>
                                     <li class="nav-item">@Html.ActionLink("Cart", "Index", "Cart", null, new { @class = "nav-link" })</li>
                                     <li class="nav-item">@Html.ActionLink("About", "About", "Home", null, new { @class = "nav-link" })</li>
                                     <li class="nav-item">@Html.ActionLink("View Sales", "Index", "Sales", null, new { @class = "nav-link" })</li>
@@ -45,14 +45,12 @@
                     <h1 class="cover-heading">Cover your page</h1>
                     <p class="lead">The one stop shop where paint snobs can stufff it.</p>
                 </div>
+                @RenderBody()
             </div>
         </div>
     </div>
-    <br />
-    <br />
-    <br />
-    <br />
-    <img src="..." class="wow">
+    
+    <img src="" class="wow">
 </body>
 </html>
 <!--
@@ -90,7 +88,7 @@
 
 
         <div class="container body-content">
-            @RenderBody()
+            //RenderBody()
             <hr />
             <footer>
                 <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
