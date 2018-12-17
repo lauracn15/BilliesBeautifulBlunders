@@ -91,6 +91,8 @@ namespace PaintShop.WebMVC.Controllers
                     SalesId = detail.SalesId,
                     CartId = detail.CartId,
                 };
+            var salesService = CreateSalesService();
+            ViewBag.ProductId = new SelectList(salesService.GetSales(), "CartId", "Title");
             return View(model);
         }
 

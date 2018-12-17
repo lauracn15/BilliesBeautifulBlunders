@@ -11,23 +11,17 @@
 {
     @Html.AntiForgeryToken()
     
-    <div class="form-horizontal">
-        <h4>SalesEdit</h4>
-        <hr />
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+<div class="form-horizontal">
+    <h4>SalesEdit</h4>
+    <hr />
+    @Html.HiddenFor(model => model.CartId)
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    <div class="inner-cover">
         <div class="form-group">
             @Html.LabelFor(model => model.CartId, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.CartId, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.DropDownList("CartId", null, htmlAttributes: new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.CartId, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.SalesId, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.SalesId, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.SalesId, "", new { @class = "text-danger" })
             </div>
         </div>
 
@@ -37,6 +31,7 @@
             </div>
         </div>
     </div>
+</div>
 }
 
 <div>

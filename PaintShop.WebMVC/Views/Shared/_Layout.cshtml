@@ -13,44 +13,34 @@
     <audio controls autoplay loop>
         <source src="https://soundcloud.com/user-510570476/turn-the-colours-downbounce1">
     </audio>
-    <!-- <img src="https://i.ebayimg.com/images/g/3zQAAOSwkShZAI9N/s-l1600.jpg" class="img-fluid" alt="Responsive image"> -->
     <div class="site-wrapper">
         <div class="site-wrapper-inner">
-            <div class="cover-container">
-                <div class="masthead-clearfix">
-                    <div class="inner">
-                        <div class="navbar-collapse collapse">
-                            <nav class="nav navbar-expand-sm navbar-dark">
-                                <div class="container">
-                                    @Html.Partial("_LoginPartial")
-                                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                                        <span class="navbar-toggler-icon"></span>
+            
+        <div class="masthead-clearfix">
+            <div class="navbar-collapse collapse">
+                <nav class="nav navbar-expand-sm navbar-dark">
+                    <div class="container">
+                        @Html.Partial("_LoginPartial")
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
 
-                                    </button>
-                                </div>
-                                <ul class="nav masthead-nav">
-                                    <li> <a href="@Url.Action("Index", "Product")">Add Product</a> </li>
-                                    <li class="nav-item">@Html.ActionLink("Cart", "Index", "Cart", null, new { @class = "nav-link" })</li>
-                                    <li class="nav-item">@Html.ActionLink("About", "About", "Home", null, new { @class = "nav-link" })</li>
-                                    <li class="nav-item">@Html.ActionLink("View Sales", "Index", "Sales", null, new { @class = "nav-link" })</li>
-                                    <li class="nav-item">@Html.ActionLink("Contact", "Contact", "Home", null, new { @class = "nav-link" })</li>
-                                </ul>
-
-
-                            </nav>
-                        </div>
+                        </button>
                     </div>
-                </div>
-                <div class="cover">
-                    <h1 class="cover-heading">Cover your page</h1>
-                    <p class="lead">The one stop shop where paint snobs can stufff it.</p>
-                </div>
-                @RenderBody()
+                    <ul class="nav masthead-nav">
+                        <li class="nav-item">@Html.ActionLink("Home", "Index", "Home", null, new { @class = "nav-link" })</li>
+                        <li class="nav-item">@Html.ActionLink("Add Product", "Index", "Product", null, new { @class = "nav-link" })</li>
+                        <li class="nav-item">@Html.ActionLink("Cart", "Index", "Cart", null, new { @class = "nav-link" })</li>
+                        <li class="nav-item">@Html.ActionLink("About", "About", "Home", null, new { @class = "nav-link" })</li>
+                        <li class="nav-item">@Html.ActionLink("View Sales", "Index", "Sales", null, new { @class = "nav-link" })</li>
+                        <li class="nav-item">@Html.ActionLink("Contact", "Contact", "Home", null, new { @class = "nav-link" })</li>
+                    </ul>
+                </nav>
             </div>
         </div>
-    </div>
-    
-    <img src="" class="wow">
+               
+        @RenderBody()
+    </div>    
+</div>
 </body>
 </html>
 <!--
