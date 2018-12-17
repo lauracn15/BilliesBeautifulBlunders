@@ -6,26 +6,20 @@
     <title>@ViewBag.Title - Paint Shop</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
+    <link rel="stylesheet" href="~/Content/Custom.css" />
+
 
 </head>
 
 <body>
     <audio controls autoplay loop>
-        <source src="https://soundcloud.com/user-510570476/turn-the-colours-downbounce1">
+        <source src="~/Content/img/Let%20Go-%20jtrump.mp3" type="audio/mpeg" />
     </audio>
-    <div class="site-wrapper">
-        <div class="site-wrapper-inner">
-            
-        <div class="masthead-clearfix">
-            <div class="navbar-collapse collapse">
+    <div class="masthead-clearfix">
+        <div class="navbar-collapse collapse">
+            <div class="container">
                 <nav class="nav navbar-expand-sm navbar-dark">
-                    <div class="container">
-                        @Html.Partial("_LoginPartial")
-                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                            <span class="navbar-toggler-icon"></span>
-
-                        </button>
-                    </div>
+                    @Html.Partial("_LoginPartial")
                     <ul class="nav masthead-nav">
                         <li class="nav-item">@Html.ActionLink("Home", "Index", "Home", null, new { @class = "nav-link" })</li>
                         <li class="nav-item">@Html.ActionLink("Add Product", "Index", "Product", null, new { @class = "nav-link" })</li>
@@ -37,57 +31,10 @@
                 </nav>
             </div>
         </div>
-               
-        @RenderBody()
-    </div>    
-</div>
+    </div>
+
+    @RenderBody()
+
 </body>
 </html>
-<!--
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            @Html.ActionLink("Paint Shop", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
-        </div>
-        <div class="navbar-collapse collapse">
-            <div class="container">
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    @if (User.Identity.IsAuthenticated)
-                    {
-                        <li>@Html.ActionLink("Add Product", "Index", "Product")</li>
-                    }
-                    <li>@Html.ActionLink("Cart", "Index", "Cart")</li>
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
-                    @if (User.Identity.IsAuthenticated)
-                    {
-                        <li>@Html.ActionLink("View Sales", "Index", "Sales")</li>
-                    }
 
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-                </ul>
-                @Html.Partial("_LoginPartial")
-            </div>
-        </div>
-        </div>
-        </div>
-
-
-
-        <div class="container body-content">
-            //RenderBody()
-            <hr />
-            <footer>
-                <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
-            </footer>
-        </div>
-
-        @Scripts.Render("~/bundles/jquery")
-        @Scripts.Render("~/bundles/bootstrap")
-        @RenderSection("scripts", required: false)
-    </body>
-</html>
-    -->
