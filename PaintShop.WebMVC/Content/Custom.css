@@ -5,7 +5,7 @@ a:hover {
     border-radius: 10%;
 }
 a:focus{
-    background-color: yellow;
+   
 }
 html,
 body {
@@ -18,15 +18,18 @@ body {
     text-align: center;
     text-shadow: 0 1px 3px rgba(0,0,0,.5);
 }
-
+ 
 .masthead-clearfix {
     padding: 0;
     font-weight: bold;
     font: #ffced0;
 }
-
+.cover-container {
+    margin-right: auto;
+    margin-left: auto;
+}
 .cover {
-    padding: 50px;
+    padding: 150px;
 }
 
 
@@ -70,7 +73,7 @@ body {
 }*/
 .pulse {
     position: absolute;
-    top: 58%;
+    top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     background-image: url('img/heartResized.jpg');

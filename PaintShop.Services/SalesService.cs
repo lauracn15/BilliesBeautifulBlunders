@@ -22,12 +22,13 @@ namespace PaintShop.Services
                 new Sales()
                 {
                     OwnerId = _userId,
-                    CartId = model.CartId
+                    CartId = model.CartId,
+                    SalesId = model.SalesId,
                 };
 
             using (var ctx = new ApplicationDbContext())
             {
-                entity.ProductId = ctx.Cart.FirstOrDefault(c => c.CartId == entity.CartId).ProductId;
+               
 
                 ctx.Sales.Add(entity);
                 return ctx.SaveChanges() == 1;
@@ -52,6 +53,8 @@ namespace PaintShop.Services
                             Title = e.Cart.Product.Title,
                             Colors = e.Cart.Product.Colors,
                             Size = e.Cart.Product.Size,
+                            CreatedUtc = e.CreatedUtc,
+                            ModifiedUtc = e.ModifiedUtc,
                         }
                     );
                 return query.ToArray();
@@ -72,7 +75,10 @@ namespace PaintShop.Services
                     new SalesDetail
                     {
                         CartId = entity.Cart.CartId,
-
+                        SalesId = entity.SalesId,
+                        Title = entity.Cart.Title,
+                        Price = entity.Cart.Price,
+                        Size = entity.Cart.Size,
                     };
             }
         }

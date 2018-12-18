@@ -12,8 +12,9 @@ namespace PaintShop.Models
         
         public int SalesId { get; set; }
         public int CartId { get; set; }
-     
 
-       
+        public string Title { get; set; }
+        public string Size { get; set; }
+        public decimal Price { get; set; } 
     }
 }
